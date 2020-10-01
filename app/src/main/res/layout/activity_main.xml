@@ -6,27 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/iv_developer"
-        android:layout_width="wrap_content"
-        android:layout_height="350dp"
-        android:src="@drawable/developer"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:fontFamily="@font/varela_round"
-        android:gravity="center"
-        android:text="Humare Karta Dharta Hai 😎, Bhosdike chup chaap per chuo !!! 🙏🙏🙏"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_developer"
-        tools:layout_editor_absoluteX="16dp" />
+   
 
 </androidx.constraintlayout.widget.ConstraintLayout>
