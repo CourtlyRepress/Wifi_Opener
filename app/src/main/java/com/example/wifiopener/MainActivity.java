@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -42,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         wifiSwitch = findViewById(R.id.wifi_switch);
         wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-        WifiReceiver wifiReceiver = new WifiReceiver();
-        registerReceiver(wifiReceiver,new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+//        WifiReceiver wifiReceiver = new WifiReceiver();
+//        registerReceiver(wifiReceiver,new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
         if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},0);
         }else{
@@ -115,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public String getItem(int position) {
-            return null;
+        public Object getItem(int position) {
+            return wifiList.get(position);
         }
 
         @Override
@@ -139,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 holder=(DeviceViewHolder)convertView.getTag();
             }
 //            String device=getItem(position);
-            holder.tvDeviceName.setText(wifiDevices.get(position).SSID);
+            holder.tvDeviceName.setText(((ScanResult)(getItem(position))).SSID);
             return convertView;
         }
 
@@ -151,10 +152,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    static class WifiReceiver extends BroadcastReceiver{
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-        }
-    }
+//    static class WifiReceiver extends BroadcastReceiver{
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+////            Log.d("Ajit", "onReceive: ");
+//        }
+//    }
 }
