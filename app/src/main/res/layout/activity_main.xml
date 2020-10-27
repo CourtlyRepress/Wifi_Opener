@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+<androidx.appcompat.widget.SwitchCompat
 
-    <androidx.appcompat.widget.SwitchCompat
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/wifi_switch"
-        android:text="@string/wifi_is_off"/>
-<ListView
-    android:layout_width="match_parent"
+    android:layout_margin="16dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:id="@+id/wifi_switch"
+    android:text="@string/wifi_is_off"/>
+<ListView
     android:id="@+id/lv_availableDevices"
-    app:layout_constraintTop_toBottomOf="@id/wifi_switch"
-    app:layout_constraintStart_toStartOf="parent">
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.97"/>
 
-</ListView>
+<Button
+    android:id="@+id/scanBtn"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_gravity="bottom"
+    android:layout_margin="15dp"
+    android:background="#0C85E6"
+    android:text="@string/scan_wifi"
+  />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
